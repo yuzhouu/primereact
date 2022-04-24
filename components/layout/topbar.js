@@ -1,9 +1,9 @@
-import { Badge } from "../lib/badge/Badge";
-import { CSSTransition } from "react-transition-group";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { VersionService } from "../../service/VersionService";
-import getConfig from "next/config";
+import { Badge } from '../lib/badge/Badge';
+import { CSSTransition } from 'react-transition-group';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
+import { VersionService } from '../../service/VersionService';
+import getConfig from 'next/config';
 
 export default function Topbar(props) {
     const [activeMenuIndex, setActiveMenuIndex] = useState(null);
@@ -14,34 +14,28 @@ export default function Topbar(props) {
     const resetMenuActive = () => {
         setActiveMenuIndex(null);
     };
-    const toggleMenu = (index) => {
-        setActiveMenuIndex((prevActiveMenuIndex) =>
-            prevActiveMenuIndex === index ? null : index
-        );
+    const toggleMenu = index => {
+        setActiveMenuIndex(prevActiveMenuIndex => (prevActiveMenuIndex === index ? null : index));
     };
     const bindOutsideClickListener = () => {
         if (!outsideClickListener.current) {
-            outsideClickListener.current = (event) => {
-                if (
-                    activeMenuIndex != null &&
-                    isOutsideTopbarMenuClicked(event)
-                ) {
+            outsideClickListener.current = event => {
+                if (activeMenuIndex != null && isOutsideTopbarMenuClicked(event)) {
                     setActiveMenuIndex(null);
                 }
             };
-            document.addEventListener("click", outsideClickListener.current);
+            document.addEventListener('click', outsideClickListener.current);
         }
     };
     const unbindOutsideClickListener = () => {
         if (outsideClickListener.current) {
-            document.removeEventListener("click", outsideClickListener.current);
+            document.removeEventListener('click', outsideClickListener.current);
             outsideClickListener.current = null;
         }
     };
-    const isOutsideTopbarMenuClicked = (event) => {
+    const isOutsideTopbarMenuClicked = event => {
         return !(
-            topbarMenu.current.isSameNode(event.target) ||
-            topbarMenu.current.contains(event.target)
+            topbarMenu.current.isSameNode(event.target) || topbarMenu.current.contains(event.target)
         );
     };
     const onThemeChange = (theme, dark) => {
@@ -58,7 +52,7 @@ export default function Topbar(props) {
     }, [activeMenuIndex]); // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
-        versionService.getVersions().then((data) => setVersions(data));
+        versionService.getVersions().then(data => setVersions(data));
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const containerElement = useRef(null);
@@ -67,21 +61,16 @@ export default function Topbar(props) {
         scrollListener.current = () => {
             if (containerElement && containerElement.current) {
                 if (window.scrollY > 0)
-                    containerElement.current.classList.add(
-                        "layout-topbar-sticky"
-                    );
-                else
-                    containerElement.current.classList.remove(
-                        "layout-topbar-sticky"
-                    );
+                    containerElement.current.classList.add('layout-topbar-sticky');
+                else containerElement.current.classList.remove('layout-topbar-sticky');
             }
         };
-        window.addEventListener("scroll", scrollListener.current);
+        window.addEventListener('scroll', scrollListener.current);
     };
 
     const unbindScrollListener = () => {
         if (scrollListener.current) {
-            window.removeEventListener("scroll", scrollListener.current);
+            window.removeEventListener('scroll', scrollListener.current);
             scrollListener.current = null;
         }
     };
@@ -100,54 +89,54 @@ export default function Topbar(props) {
     const outsideClickListener = useRef();
     const versionService = new VersionService();
     const logoMap = {
-        "bootstrap4-light-blue": "bootstrap4-light-blue.svg",
-        "bootstrap4-light-purple": "bootstrap4-light-purple.svg",
-        "bootstrap4-dark-blue": "bootstrap4-dark-blue.svg",
-        "bootstrap4-dark-purple": "bootstrap4-dark-purple.svg",
-        "md-light-indigo": "md-light-indigo.svg",
-        "md-light-deeppurple": "md-light-deeppurple.svg",
-        "md-dark-indigo": "md-dark-indigo.svg",
-        "md-dark-deeppurple": "md-dark-deeppurple.svg",
-        "mdc-light-indigo": "md-light-indigo.svg",
-        "mdc-light-deeppurple": "md-light-deeppurple.svg",
-        "mdc-dark-indigo": "md-dark-indigo.svg",
-        "mdc-dark-deeppurple": "md-dark-deeppurple.svg",
-        "lara-light-blue": "lara-light-blue.png",
-        "lara-light-indigo": "lara-light-indigo.png",
-        "lara-light-purple": "lara-light-purple.png",
-        "lara-light-teal": "lara-light-teal.png",
-        "lara-dark-blue": "lara-dark-blue.png",
-        "lara-dark-indigo": "lara-dark-indigo.png",
-        "lara-dark-purple": "lara-dark-purple.png",
-        "lara-dark-teal": "lara-dark-teal.png",
-        "saga-blue": "saga-blue.png",
-        "saga-green": "saga-green.png",
-        "saga-orange": "saga-orange.png",
-        "saga-purple": "saga-purple.png",
-        "vela-blue": "vela-blue.png",
-        "vela-green": "vela-green.png",
-        "vela-orange": "vela-orange.png",
-        "vela-purple": "vela-purple.png",
-        "arya-blue": "arya-blue.png",
-        "arya-green": "arya-green.png",
-        "arya-orange": "arya-orange.png",
-        "arya-purple": "arya-purple.png",
-        nova: "nova.png",
-        "nova-alt": "nova-alt.png",
-        "nova-accent": "nova-accent.png",
-        "luna-blue": "luna-blue.png",
-        "luna-green": "luna-green.png",
-        "luna-pink": "luna-pink.png",
-        "luna-amber": "luna-amber.png",
-        rhea: "rhea.png",
-        "fluent-light": "fluent-light.png",
-        "soho-light": "soho-light.png",
-        "soho-dark": "soho-dark.png",
-        "viva-light": "viva-light.svg",
-        "viva-dark": "viva-dark.svg",
-        mira: "mira.jpg",
-        nano: "nano.jpg",
-        "tailwind-light": "tailwind-light.png",
+        'bootstrap4-light-blue': 'bootstrap4-light-blue.svg',
+        'bootstrap4-light-purple': 'bootstrap4-light-purple.svg',
+        'bootstrap4-dark-blue': 'bootstrap4-dark-blue.svg',
+        'bootstrap4-dark-purple': 'bootstrap4-dark-purple.svg',
+        'md-light-indigo': 'md-light-indigo.svg',
+        'md-light-deeppurple': 'md-light-deeppurple.svg',
+        'md-dark-indigo': 'md-dark-indigo.svg',
+        'md-dark-deeppurple': 'md-dark-deeppurple.svg',
+        'mdc-light-indigo': 'md-light-indigo.svg',
+        'mdc-light-deeppurple': 'md-light-deeppurple.svg',
+        'mdc-dark-indigo': 'md-dark-indigo.svg',
+        'mdc-dark-deeppurple': 'md-dark-deeppurple.svg',
+        'lara-light-blue': 'lara-light-blue.png',
+        'lara-light-indigo': 'lara-light-indigo.png',
+        'lara-light-purple': 'lara-light-purple.png',
+        'lara-light-teal': 'lara-light-teal.png',
+        'lara-dark-blue': 'lara-dark-blue.png',
+        'lara-dark-indigo': 'lara-dark-indigo.png',
+        'lara-dark-purple': 'lara-dark-purple.png',
+        'lara-dark-teal': 'lara-dark-teal.png',
+        'saga-blue': 'saga-blue.png',
+        'saga-green': 'saga-green.png',
+        'saga-orange': 'saga-orange.png',
+        'saga-purple': 'saga-purple.png',
+        'vela-blue': 'vela-blue.png',
+        'vela-green': 'vela-green.png',
+        'vela-orange': 'vela-orange.png',
+        'vela-purple': 'vela-purple.png',
+        'arya-blue': 'arya-blue.png',
+        'arya-green': 'arya-green.png',
+        'arya-orange': 'arya-orange.png',
+        'arya-purple': 'arya-purple.png',
+        nova: 'nova.png',
+        'nova-alt': 'nova-alt.png',
+        'nova-accent': 'nova-accent.png',
+        'luna-blue': 'luna-blue.png',
+        'luna-green': 'luna-green.png',
+        'luna-pink': 'luna-pink.png',
+        'luna-amber': 'luna-amber.png',
+        rhea: 'rhea.png',
+        'fluent-light': 'fluent-light.png',
+        'soho-light': 'soho-light.png',
+        'soho-dark': 'soho-dark.png',
+        'viva-light': 'viva-light.svg',
+        'viva-dark': 'viva-dark.svg',
+        mira: 'mira.jpg',
+        nano: 'nano.jpg',
+        'tailwind-light': 'tailwind-light.png',
     };
     const contextPath = getConfig().publicRuntimeConfig.contextPath;
 
@@ -169,11 +158,7 @@ export default function Topbar(props) {
                 />
             </div>
 
-            <ul
-                ref={topbarMenu}
-                className="topbar-menu p-unselectable-text"
-                role="menubar"
-            >
+            <ul ref={topbarMenu} className="topbar-menu p-unselectable-text" role="menubar">
                 <li role="none" className="topbar-submenu">
                     <button
                         type="button"
@@ -191,11 +176,7 @@ export default function Topbar(props) {
                         in={activeMenuIndex === 0}
                         unmountOnExit
                     >
-                        <ul
-                            ref={themesOverlayRef}
-                            role="menu"
-                            aria-label="Themes"
-                        >
+                        <ul ref={themesOverlayRef} role="menu" aria-label="Themes">
                             <li role="none" className="topbar-submenu-header">
                                 THEMING
                             </li>
@@ -217,10 +198,7 @@ export default function Topbar(props) {
                                 </a>
                             </li>
                             <li role="none">
-                                <a
-                                    href="https://www.primefaces.org/designer-react"
-                                    role="menuitem"
-                                >
+                                <a href="https://www.primefaces.org/designer-react" role="menuitem">
                                     <i className="pi pi-fw pi-desktop" />
                                     <span>Visual Editor</span>
                                 </a>
@@ -250,9 +228,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("_css-variable-base")
-                                    }
+                                    onClick={() => onThemeChange('_css-variable-base')}
                                     role="menuitem"
                                 >
                                     <img
@@ -269,9 +245,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("bootstrap4-light-blue")
-                                    }
+                                    onClick={() => onThemeChange('bootstrap4-light-blue')}
                                     role="menuitem"
                                 >
                                     <img
@@ -285,9 +259,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("bootstrap4-light-purple")
-                                    }
+                                    onClick={() => onThemeChange('bootstrap4-light-purple')}
                                     role="menuitem"
                                 >
                                     <img
@@ -301,12 +273,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange(
-                                            "bootstrap4-dark-blue",
-                                            true
-                                        )
-                                    }
+                                    onClick={() => onThemeChange('bootstrap4-dark-blue', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -320,12 +287,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange(
-                                            "bootstrap4-dark-purple",
-                                            true
-                                        )
-                                    }
+                                    onClick={() => onThemeChange('bootstrap4-dark-purple', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -343,9 +305,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("md-light-indigo")
-                                    }
+                                    onClick={() => onThemeChange('md-light-indigo')}
                                     role="menuitem"
                                 >
                                     <img
@@ -359,9 +319,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("md-light-deeppurple")
-                                    }
+                                    onClick={() => onThemeChange('md-light-deeppurple')}
                                     role="menuitem"
                                 >
                                     <img
@@ -375,9 +333,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("md-dark-indigo", true)
-                                    }
+                                    onClick={() => onThemeChange('md-dark-indigo', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -391,12 +347,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange(
-                                            "md-dark-deeppurple",
-                                            true
-                                        )
-                                    }
+                                    onClick={() => onThemeChange('md-dark-deeppurple', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -414,9 +365,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("mdc-light-indigo")
-                                    }
+                                    onClick={() => onThemeChange('mdc-light-indigo')}
                                     role="menuitem"
                                 >
                                     <img
@@ -430,9 +379,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("mdc-light-deeppurple")
-                                    }
+                                    onClick={() => onThemeChange('mdc-light-deeppurple')}
                                     role="menuitem"
                                 >
                                     <img
@@ -446,9 +393,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("mdc-dark-indigo", true)
-                                    }
+                                    onClick={() => onThemeChange('mdc-dark-indigo', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -462,12 +407,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange(
-                                            "mdc-dark-deeppurple",
-                                            true
-                                        )
-                                    }
+                                    onClick={() => onThemeChange('mdc-dark-deeppurple', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -485,9 +425,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("tailwind-light")
-                                    }
+                                    onClick={() => onThemeChange('tailwind-light')}
                                     role="menuitem"
                                 >
                                     <img
@@ -505,9 +443,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("fluent-light")
-                                    }
+                                    onClick={() => onThemeChange('fluent-light')}
                                     role="menuitem"
                                 >
                                     <img
@@ -519,20 +455,14 @@ export default function Topbar(props) {
                             </li>
 
                             <li role="none" className="topbar-submenu-header">
-                                PRIMEONE 2022{" "}
-                                <Badge
-                                    value="New"
-                                    severity="success"
-                                    className="capitalize ml-2"
-                                />
+                                PRIMEONE 2022{' '}
+                                <Badge value="New" severity="success" className="capitalize ml-2" />
                             </li>
                             <li role="none">
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("lara-light-indigo")
-                                    }
+                                    onClick={() => onThemeChange('lara-light-indigo')}
                                     role="menuitem"
                                 >
                                     <img
@@ -546,9 +476,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("lara-light-blue")
-                                    }
+                                    onClick={() => onThemeChange('lara-light-blue')}
                                     role="menuitem"
                                 >
                                     <img
@@ -562,9 +490,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("lara-light-purple")
-                                    }
+                                    onClick={() => onThemeChange('lara-light-purple')}
                                     role="menuitem"
                                 >
                                     <img
@@ -578,9 +504,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("lara-light-teal")
-                                    }
+                                    onClick={() => onThemeChange('lara-light-teal')}
                                     role="menuitem"
                                 >
                                     <img
@@ -594,9 +518,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("lara-dark-indigo", true)
-                                    }
+                                    onClick={() => onThemeChange('lara-dark-indigo', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -610,9 +532,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("lara-dark-blue", true)
-                                    }
+                                    onClick={() => onThemeChange('lara-dark-blue', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -626,9 +546,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("lara-dark-purple", true)
-                                    }
+                                    onClick={() => onThemeChange('lara-dark-purple', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -642,9 +560,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("lara-dark-teal", true)
-                                    }
+                                    onClick={() => onThemeChange('lara-dark-teal', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -662,7 +578,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() => onThemeChange("saga-blue")}
+                                    onClick={() => onThemeChange('saga-blue')}
                                     role="menuitem"
                                 >
                                     <img
@@ -676,7 +592,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() => onThemeChange("saga-green")}
+                                    onClick={() => onThemeChange('saga-green')}
                                     role="menuitem"
                                 >
                                     <img
@@ -690,7 +606,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() => onThemeChange("saga-orange")}
+                                    onClick={() => onThemeChange('saga-orange')}
                                     role="menuitem"
                                 >
                                     <img
@@ -704,7 +620,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() => onThemeChange("saga-purple")}
+                                    onClick={() => onThemeChange('saga-purple')}
                                     role="menuitem"
                                 >
                                     <img
@@ -718,9 +634,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("vela-blue", true)
-                                    }
+                                    onClick={() => onThemeChange('vela-blue', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -734,9 +648,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("vela-green", true)
-                                    }
+                                    onClick={() => onThemeChange('vela-green', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -750,9 +662,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("vela-orange", true)
-                                    }
+                                    onClick={() => onThemeChange('vela-orange', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -766,9 +676,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("vela-purple", true)
-                                    }
+                                    onClick={() => onThemeChange('vela-purple', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -782,9 +690,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("arya-blue", true)
-                                    }
+                                    onClick={() => onThemeChange('arya-blue', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -798,9 +704,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("arya-green", true)
-                                    }
+                                    onClick={() => onThemeChange('arya-green', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -814,9 +718,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("arya-orange", true)
-                                    }
+                                    onClick={() => onThemeChange('arya-orange', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -830,9 +732,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("arya-purple", true)
-                                    }
+                                    onClick={() => onThemeChange('arya-purple', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -850,7 +750,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() => onThemeChange("soho-light")}
+                                    onClick={() => onThemeChange('soho-light')}
                                     role="menuitem"
                                 >
                                     <img
@@ -864,9 +764,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("soho-dark", true)
-                                    }
+                                    onClick={() => onThemeChange('soho-dark', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -880,7 +778,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() => onThemeChange("viva-light")}
+                                    onClick={() => onThemeChange('viva-light')}
                                     role="menuitem"
                                 >
                                     <img
@@ -894,9 +792,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("viva-dark", true)
-                                    }
+                                    onClick={() => onThemeChange('viva-dark', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -910,13 +806,10 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() => onThemeChange("mira")}
+                                    onClick={() => onThemeChange('mira')}
                                     role="menuitem"
                                 >
-                                    <img
-                                        src={`${contextPath}/images/themes/mira.jpg`}
-                                        alt="Mira"
-                                    />
+                                    <img src={`${contextPath}/images/themes/mira.jpg`} alt="Mira" />
                                     <span>Mira</span>
                                 </button>
                             </li>
@@ -924,13 +817,10 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() => onThemeChange("nano")}
+                                    onClick={() => onThemeChange('nano')}
                                     role="menuitem"
                                 >
-                                    <img
-                                        src={`${contextPath}/images/themes/nano.jpg`}
-                                        alt="Nano"
-                                    />
+                                    <img src={`${contextPath}/images/themes/nano.jpg`} alt="Nano" />
                                     <span>Nano</span>
                                 </button>
                             </li>
@@ -942,13 +832,10 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() => onThemeChange("nova")}
+                                    onClick={() => onThemeChange('nova')}
                                     role="menuitem"
                                 >
-                                    <img
-                                        src={`${contextPath}/images/themes/nova.png`}
-                                        alt="Nova"
-                                    />
+                                    <img src={`${contextPath}/images/themes/nova.png`} alt="Nova" />
                                     <span>Nova</span>
                                 </button>
                             </li>
@@ -956,7 +843,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() => onThemeChange("nova-alt")}
+                                    onClick={() => onThemeChange('nova-alt')}
                                     role="menuitem"
                                 >
                                     <img
@@ -970,7 +857,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() => onThemeChange("nova-accent")}
+                                    onClick={() => onThemeChange('nova-accent')}
                                     role="menuitem"
                                 >
                                     <img
@@ -984,9 +871,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("luna-amber", true)
-                                    }
+                                    onClick={() => onThemeChange('luna-amber', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -1000,9 +885,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("luna-blue", true)
-                                    }
+                                    onClick={() => onThemeChange('luna-blue', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -1016,9 +899,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("luna-green", true)
-                                    }
+                                    onClick={() => onThemeChange('luna-green', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -1032,9 +913,7 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() =>
-                                        onThemeChange("luna-pink", true)
-                                    }
+                                    onClick={() => onThemeChange('luna-pink', true)}
                                     role="menuitem"
                                 >
                                     <img
@@ -1048,13 +927,10 @@ export default function Topbar(props) {
                                 <button
                                     type="button"
                                     className="p-link"
-                                    onClick={() => onThemeChange("rhea")}
+                                    onClick={() => onThemeChange('rhea')}
                                     role="menuitem"
                                 >
-                                    <img
-                                        src={`${contextPath}/images/themes/rhea.png`}
-                                        alt="Rhea"
-                                    />
+                                    <img src={`${contextPath}/images/themes/rhea.png`} alt="Rhea" />
                                     <span>Rhea</span>
                                 </button>
                             </li>
@@ -1079,11 +955,7 @@ export default function Topbar(props) {
                         in={activeMenuIndex === 1}
                         unmountOnExit
                     >
-                        <ul
-                            ref={templatesOverlayRef}
-                            role="menu"
-                            aria-label="Templates"
-                        >
+                        <ul ref={templatesOverlayRef} role="menu" aria-label="Templates">
                             <li role="none" className="topbar-submenu-header">
                                 FREE ADMIN TEMPLATES
                             </li>
@@ -1099,10 +971,7 @@ export default function Topbar(props) {
                                         alt="Sakai"
                                     />
                                     <span>Sakai</span>
-                                    <Badge
-                                        value="New"
-                                        severity="success"
-                                    ></Badge>
+                                    <Badge value="New" severity="success"></Badge>
                                 </a>
                             </li>
 
@@ -1121,10 +990,7 @@ export default function Topbar(props) {
                                         alt="Atlantis"
                                     />
                                     <span>Atlantis</span>
-                                    <Badge
-                                        value="New"
-                                        severity="success"
-                                    ></Badge>
+                                    <Badge value="New" severity="success"></Badge>
                                 </a>
                             </li>
                             <li role="none">
@@ -1167,10 +1033,7 @@ export default function Topbar(props) {
                                         alt="Ultima (Material)"
                                     />
                                     <span>Ultima</span>
-                                    <Badge
-                                        value="Material"
-                                        severity="info"
-                                    ></Badge>
+                                    <Badge value="Material" severity="info"></Badge>
                                 </a>
                             </li>
                             <li role="none">
@@ -1199,10 +1062,7 @@ export default function Topbar(props) {
                                         alt="Sapphire (Material)"
                                     />
                                     <span>Sapphire</span>
-                                    <Badge
-                                        value="Material"
-                                        severity="info"
-                                    ></Badge>
+                                    <Badge value="Material" severity="info"></Badge>
                                 </a>
                             </li>
                             <li role="none">
@@ -1217,10 +1077,7 @@ export default function Topbar(props) {
                                         alt="Serenity (Material)"
                                     />
                                     <span>Serenity</span>
-                                    <Badge
-                                        value="Material"
-                                        severity="info"
-                                    ></Badge>
+                                    <Badge value="Material" severity="info"></Badge>
                                 </a>
                             </li>
                             <li role="none">
@@ -1235,10 +1092,7 @@ export default function Topbar(props) {
                                         alt="Avalon (Bootstrap)"
                                     />
                                     <span>Avalon</span>
-                                    <Badge
-                                        value="Bootstrap"
-                                        severity="info"
-                                    ></Badge>
+                                    <Badge value="Bootstrap" severity="info"></Badge>
                                 </a>
                             </li>
                             <li role="none">
@@ -1267,10 +1121,7 @@ export default function Topbar(props) {
                                         alt="Apollo"
                                     />
                                     <span>Apollo</span>
-                                    <Badge
-                                        value="Dark Mode"
-                                        severity="warning"
-                                    ></Badge>
+                                    <Badge value="Dark Mode" severity="warning"></Badge>
                                 </a>
                             </li>
                         </ul>
@@ -1290,11 +1141,11 @@ export default function Topbar(props) {
                     <button
                         type="button"
                         role="menuitem"
-                        onClick={(e) => toggleMenu(3)}
+                        onClick={e => toggleMenu(3)}
                         aria-haspopup
                         className="p-link"
                     >
-                        {versions && versions.length ? versions[0].version : ""}
+                        {versions && versions.length ? versions[0].version : ''}
                     </button>
                     <CSSTransition
                         nodeRef={versionsOverlayRef}
@@ -1307,9 +1158,9 @@ export default function Topbar(props) {
                             ref={versionsOverlayRef}
                             role="menu"
                             aria-label="Versions"
-                            style={{ width: "100%" }}
+                            style={{ width: '100%' }}
                         >
-                            {versions.map((version) => {
+                            {versions.map(version => {
                                 return (
                                     <li role="none" key={version.version}>
                                         <a href={version.url} role="menuitem">
