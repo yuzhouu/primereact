@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+}
+
+.p-component {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+        "Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.p-component-overlay {
+    background-color: var(--mask-bg);
+    transition-duration: 0.2s;
+}
+
+.p-disabled,
+.p-component:disabled {
+    opacity: 0.6;
+}
+
+.p-error {
+    color: var(--error-color);
+}
+
+.p-text-secondary {
+    color: #6c757d;
+}
+
+.pi {
+    font-size: 1rem;
+}
+
+.p-link {
+    font-size: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+        "Segoe UI Symbol";
+    border-radius: 6px;
+}
+.p-link:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: var(--focus-ring);
+}
+
+.p-component-overlay-enter {
+    animation: p-component-overlay-enter-animation 150ms forwards;
+}
+
+.p-component-overlay-leave {
+    animation: p-component-overlay-leave-animation 150ms forwards;
+}
+
+@keyframes p-component-overlay-enter-animation {
+    from {
+        background-color: transparent;
+    }
+    to {
+        background-color: var(--maskbg);
+    }
+}
+@keyframes p-component-overlay-leave-animation {
+    from {
+        background-color: var(--maskbg);
+    }
+    to {
+        background-color: transparent;
+    }
+}

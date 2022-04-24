@@ -1,0 +1,28 @@
+:root {
+    --menu-width: 12.5rem;
+    --menu-bg: #ffffff;
+    --menu-border: 1px solid #dee2e6;
+    --menu-text-color: var(--text-color);
+    --menuitem-padding: 0.75rem 1rem;
+    --menuitem-border-radius: 0;
+    --menuitem-text-color: var(--text-color);
+    --menuitem-icon-color: var(--text-secondary-color);
+    --menuitem-text-hover-color: var(--text-color);
+    --menuitem-icon-hover-color: var(--text-secondary-color);
+    --menuitem-hover-bg: #e9ecef;
+    --menuitem-text-active-color: var(--text-color);
+    --menuitem-icon-active-color: var(--text-secondary-color);
+    --menuitem-active-bg: #e9ecef;
+    --menuitem-submenu-icon-font-size: 0.875rem;
+    --submenu-header-margin: 0;
+    --submenu-header-padding: 0.75rem 1rem;
+    --submenu-header-bg: #ffffff;
+    --submenu-header-text-color: var(--text-color);
+    --submenu-header-border-radius: 0;
+    --submenu-header-font-weight: 600;
+    --overlay-menu-bg: var(--menu-bg);
+    --overlay-menu-border: 0 none;
+    --overlay-menu-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
+    --vertical-menu-padding: 0.25rem 0;
+    --menu-separator-margin: 0.25rem 0;
+}

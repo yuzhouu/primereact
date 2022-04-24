@@ -1,0 +1,24 @@
+:root {
+    --tabview-nav-border: 1px solid #dee2e6;
+    --tabview-nav-border-width: 0 0 2px 0;
+    --tabview-nav-bg: #ffffff;
+    --tabview-header-spacing: 0;
+    --tabview-header-border: solid #dee2e6;
+    --tabview-header-border-width: 0 0 2px 0;
+    --tabview-header-border-color: transparent transparent #dee2e6 transparent;
+    --tabview-header-bg: #ffffff;
+    --tabview-header-text-color: var(--text-secondary-color);
+    --tabview-header-font-weight: var(--panel-header-font-weight);
+    --tabview-header-padding: var(--panel-header-padding);
+    --tabview-header-margin: 0 0 -2px 0;
+    --tabview-header-hover-bg: #ffffff;
+    --tabview-header-hover-border-color: #9ba2aa;
+    --tabview-header-text-hover-color: var(--text-secondary-color);
+    --tabview-header-active-bg: #ffffff;
+    --tabview-header-active-border-color: var(--primary-color);
+    --tabview-header-text-active-color: var(--primary-color);
+    --tabview-content-border: 0 none;
+    --tabview-content-bg: var(--panel-content-bg);
+    --tabview-content-text-color: var(--panel-content-text-color);
+    --tabview-content-padding: var(--panel-content-padding);
+}

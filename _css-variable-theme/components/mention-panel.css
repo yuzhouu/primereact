@@ -1,0 +1,27 @@
+.p-mention-panel {
+    background: #ffffff;
+    color: #495057;
+    border: 0 none;
+    border-radius: 6px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+.p-mention-panel .p-mention-items {
+    padding: 0.75rem 0;
+}
+.p-mention-panel .p-mention-items .p-mention-item {
+    margin: 0;
+    padding: 0.75rem 1.25rem;
+    border: 0 none;
+    color: #495057;
+    background: transparent;
+    transition: box-shadow 0.2s;
+    border-radius: 0;
+}
+.p-mention-panel .p-mention-items .p-mention-item:hover {
+    color: #495057;
+    background: #e9ecef;
+}
+.p-mention-panel .p-mention-items .p-mention-item.p-highlight {
+    color: #4338ca;
+    background: #eef2ff;
+}

@@ -1,0 +1,41 @@
+:root {
+    --input-padding: 0.5rem 0.5rem;
+    --input-bg: #ffffff;
+    --input-text-font-size: 1rem;
+    --input-text-color: var(--text-color);
+    --input-icon-color: var(--text-color);
+    --input-border: 1px solid #ced4da;
+    --input-hover-border-color: var(--primary-color);
+    --input-focus-border-color: var(--primary-color);
+    --input-error-border-color: #ced4da #ced4da #ced4da var(--error-color);
+    --input-placeholder-text-color: #6c757d;
+    --input-filled-bg: #f8f9fa;
+    --input-filled-hover-bg: #f8f9fa;
+    --input-filled-focus-bg: #f8f9fa;
+    --input-group-bg: #e9ecef;
+    --input-group-text-color: var(--text-secondary-color);
+    --input-group-add-on-min-width: 2.357rem;
+    --input-list-bg: #ffffff;
+    --input-list-text-color: var(--text-color);
+    --input-list-border: var(--input-border);
+    --input-list-padding: 0.5rem 0;
+    --input-list-item-padding: 0.5rem 1rem;
+    --input-list-item-bg: transparent;
+    --input-list-item-text-color: var(--text-color);
+    --input-list-item-hover-bg: #e9ecef;
+    --input-list-item-text-hover-color: var(--text-color);
+    --input-list-item-border: 0 none;
+    --input-list-item-border-radius: 0;
+    --input-list-item-margin: 0;
+    --input-list-item-focus-shadow: inset 0 0 0 0.15rem
+        var(--focus-outline-color);
+    --input-list-header-padding: 0.5rem 1rem;
+    --input-list-header-margin: 0;
+    --input-list-header-bg: #f8f9fa;
+    --input-list-header-text-color: var(--text-color);
+    --input-list-header-border: 0 none;
+    --input-overlay-bg: var(--input-list-bg);
+    --input-overlay-header-bg: var(--input-list-header-bg);
+    --input-overlay-border: 0 none;
+    --input-overlay-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+}

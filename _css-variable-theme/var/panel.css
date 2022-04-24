@@ -1,0 +1,24 @@
+:root {
+    --panel-header-border-color: #dee2e6;
+    --panel-header-border: 1px solid #dee2e6;
+    --panel-header-bg: #f8f9fa;
+    --panel-header-text-color: var(--text-color);
+    --panel-header-font-weight: 600;
+    --panel-header-padding: 1rem;
+    --panel-toggleable-header-padding: 0.5rem 1rem;
+    --panel-header-hover-bg: #e9ecef;
+    --panel-header-hover-border-color: #dee2e6;
+    --panel-header-text-hover-color: #495057;
+    --panel-content-border-color: #dee2e6;
+    --panel-content-border: 1px solid #dee2e6;
+    --panel-content-bg: #ffffff;
+    --panel-content-text-color: var(--text-color);
+    --panel-content-padding: 1rem;
+    --panel-footer-border: 1px solid #dee2e6;
+    --panel-footer-bg: #ffffff;
+    --panel-footer-text-color: var(--text-color);
+    --panel-footer-padding: 0.5rem 1rem;
+    --panel-header-hover-bg: #e9ecef;
+    --panel-header-hover-border-color: #dee2e6;
+    --panel-header-text-hover-color: var(--text-color);
+}

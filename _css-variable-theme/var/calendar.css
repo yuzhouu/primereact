@@ -1,0 +1,31 @@
+:root {
+    --calendar-table-margin: 0.5rem 0;
+    --calendar-padding: 0.5rem;
+    --calendar-bg: #ffffff;
+    --calendar-inline-bg: var(--calendar-bg);
+    --calendar-text-color: var(--text-color);
+    --calendar-border: var(--input-list-border);
+    --calendar-overlay-border: var(--input-overlay-border);
+    --calendar-header-padding: 0.5rem;
+    --calendar-header-bg: #ffffff;
+    --calendar-inline-header-bg: var(--calendar-bg);
+    --calendar-header-border: 1px solid #dee2e6;
+    --calendar-header-text-color: var(--text-color);
+    --calendar-header-font-weight: 600;
+    --calendar-header-cell-padding: 0.5rem;
+    --calendar-cell-date-padding: 0.5rem;
+    --calendar-cell-date-width: 2.5rem;
+    --calendar-cell-date-height: 2.5rem;
+    --calendar-cell-date-border-radius: 50%;
+    --calendar-cell-date-border: 1px solid transparent;
+    --calendar-cell-date-hover-bg: #e9ecef;
+    --calendar-cell-date-today-bg: #ced4da;
+    --calendar-cell-date-today-border-color: transparent;
+    --calendar-cell-date-today-text-color: var(--text-color);
+    --calendar-button-bar-padding: 1rem 0;
+    --calendar-time-picker-padding: 0.5rem;
+    --calendar-time-picker-element-padding: 0 0.429rem;
+    --calendar-time-picker-time-font-size: 1.286rem;
+    --calendar-breakpoint: 769px;
+    --calendar-cell-date-padding-s-m: 0;
+}

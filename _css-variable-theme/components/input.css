@@ -1,0 +1,224 @@
+.p-inputgroup-addon {
+    background: #e9ecef;
+    color: #6c757d;
+    border-top: 1px solid #ced4da;
+    border-left: 1px solid #ced4da;
+    border-bottom: 1px solid #ced4da;
+    padding: 0.75rem 0.75rem;
+    min-width: 3rem;
+}
+.p-inputgroup-addon:last-child {
+    border-right: 1px solid #ced4da;
+}
+
+.p-inputgroup > .p-component,
+.p-inputgroup > .p-inputwrapper > .p-inputtext,
+.p-inputgroup > .p-float-label > .p-component {
+    border-radius: 0;
+    margin: 0;
+}
+.p-inputgroup > .p-component + .p-inputgroup-addon,
+.p-inputgroup > .p-inputwrapper > .p-inputtext + .p-inputgroup-addon,
+.p-inputgroup > .p-float-label > .p-component + .p-inputgroup-addon {
+    border-left: 0 none;
+}
+.p-inputgroup > .p-component:focus,
+.p-inputgroup > .p-inputwrapper > .p-inputtext:focus,
+.p-inputgroup > .p-float-label > .p-component:focus {
+    z-index: 1;
+}
+.p-inputgroup > .p-component:focus ~ label,
+.p-inputgroup > .p-inputwrapper > .p-inputtext:focus ~ label,
+.p-inputgroup > .p-float-label > .p-component:focus ~ label {
+    z-index: 1;
+}
+
+.p-inputgroup-addon:first-child,
+.p-inputgroup button:first-child,
+.p-inputgroup input:first-child,
+.p-inputgroup > .p-inputwrapper:first-child,
+.p-inputgroup > .p-inputwrapper:first-child > .p-inputtext {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.p-inputgroup .p-float-label:first-child input {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.p-inputgroup-addon:last-child,
+.p-inputgroup button:last-child,
+.p-inputgroup input:last-child,
+.p-inputgroup > .p-inputwrapper:last-child,
+.p-inputgroup > .p-inputwrapper:last-child > .p-inputtext {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.p-inputgroup .p-float-label:last-child input {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.p-fluid .p-inputgroup .p-button {
+    width: auto;
+}
+.p-fluid .p-inputgroup .p-button.p-button-icon-only {
+    width: 3rem;
+}
+
+.p-inputnumber.p-invalid.p-component > .p-inputtext {
+    border-color: var(--error-color);
+}
+
+.p-inputswitch {
+    width: 3rem;
+    height: 1.75rem;
+}
+.p-inputswitch .p-inputswitch-slider {
+    background: #ced4da;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s,
+        box-shadow 0.2s;
+    border-radius: 30px;
+}
+.p-inputswitch .p-inputswitch-slider:before {
+    background: #ffffff;
+    width: 1.25rem;
+    height: 1.25rem;
+    left: 0.25rem;
+    margin-top: -0.625rem;
+    border-radius: 50%;
+    transition-duration: 0.2s;
+}
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {
+    transform: translateX(1.25rem);
+}
+.p-inputswitch.p-focus .p-inputswitch-slider {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: var(--focus-ring);
+}
+.p-inputswitch:not(.p-disabled):hover .p-inputswitch-slider {
+    background: #b6bfc8;
+}
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+    background: #6366f1;
+}
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {
+    background: #ffffff;
+}
+.p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover
+    .p-inputswitch-slider {
+    background: #4f46e5;
+}
+.p-inputswitch.p-invalid {
+    border-color: var(--error-color);
+}
+
+.p-inputtext {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+        "Segoe UI Symbol";
+    font-size: 1rem;
+    color: #495057;
+    background: #ffffff;
+    padding: 0.75rem 0.75rem;
+    border: 1px solid #ced4da;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s,
+        box-shadow 0.2s;
+    appearance: none;
+    border-radius: 6px;
+}
+.p-inputtext:enabled:hover {
+    border-color: #6366f1;
+}
+.p-inputtext:enabled:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: var(--focus-ring);
+    border-color: #6366f1;
+}
+.p-inputtext.p-invalid.p-component {
+    border-color: var(--error-color);
+}
+.p-inputtext.p-inputtext-sm {
+    font-size: 0.875rem;
+    padding: 0.65625rem 0.65625rem;
+}
+.p-inputtext.p-inputtext-lg {
+    font-size: 1.25rem;
+    padding: 0.9375rem 0.9375rem;
+}
+
+.p-float-label > label {
+    left: 0.75rem;
+    color: #6c757d;
+    transition-duration: 0.2s;
+}
+
+.p-float-label > label.p-error {
+    color: var(--error-color);
+}
+
+.p-input-icon-left > i:first-of-type,
+.p-input-icon-left > svg:first-of-type,
+.p-input-icon-left > .p-input-prefix {
+    left: 0.75rem;
+    color: #6c757d;
+}
+
+.p-input-icon-left > .p-inputtext {
+    padding-left: 2.5rem;
+}
+
+.p-input-icon-left.p-float-label > label {
+    left: 2.5rem;
+}
+
+.p-input-icon-right > i:last-of-type,
+.p-input-icon-right > svg:last-of-type,
+.p-input-icon-right > .p-input-suffix {
+    right: 0.75rem;
+    color: #6c757d;
+}
+
+.p-input-icon-right > .p-inputtext {
+    padding-right: 2.5rem;
+}
+
+::-webkit-input-placeholder {
+    color: #6c757d;
+}
+
+:-moz-placeholder {
+    color: #6c757d;
+}
+
+::-moz-placeholder {
+    color: #6c757d;
+}
+
+:-ms-input-placeholder {
+    color: #6c757d;
+}
+
+.p-input-filled .p-inputtext {
+    background-color: #e9ecef;
+}
+.p-input-filled .p-inputtext:enabled:hover {
+    background-color: #e9ecef;
+}
+.p-input-filled .p-inputtext:enabled:focus {
+    background-color: #ffffff;
+}
+
+.p-inputtext-sm .p-inputtext {
+    font-size: 0.875rem;
+    padding: 0.65625rem 0.65625rem;
+}
+
+.p-inputtext-lg .p-inputtext {
+    font-size: 1.25rem;
+    padding: 0.9375rem 0.9375rem;
+}

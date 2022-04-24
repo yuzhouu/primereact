@@ -1,0 +1,99 @@
+.p-cascadeselect {
+    background: #ffffff;
+    border: 1px solid #ced4da;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s,
+        box-shadow 0.2s;
+    border-radius: 6px;
+}
+.p-cascadeselect:not(.p-disabled):hover {
+    border-color: #6366f1;
+}
+.p-cascadeselect:not(.p-disabled).p-focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: var(--focus-ring);
+    border-color: #6366f1;
+}
+.p-cascadeselect .p-cascadeselect-label {
+    background: transparent;
+    border: 0 none;
+    padding: 0.75rem 0.75rem;
+}
+.p-cascadeselect .p-cascadeselect-label.p-placeholder {
+    color: #6c757d;
+}
+.p-cascadeselect .p-cascadeselect-label:enabled:focus {
+    outline: 0 none;
+    box-shadow: none;
+}
+.p-cascadeselect .p-cascadeselect-trigger {
+    background: transparent;
+    color: #6c757d;
+    width: 3rem;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.p-cascadeselect.p-invalid.p-component {
+    border-color: var(--error-color);
+}
+
+.p-cascadeselect-panel {
+    background: #ffffff;
+    color: #495057;
+    border: 0 none;
+    border-radius: 6px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+.p-cascadeselect-panel .p-cascadeselect-items {
+    padding: 0.75rem 0;
+}
+.p-cascadeselect-panel .p-cascadeselect-items .p-cascadeselect-item {
+    margin: 0;
+    border: 0 none;
+    color: #495057;
+    background: transparent;
+    transition: box-shadow 0.2s;
+    border-radius: 0;
+}
+.p-cascadeselect-panel
+    .p-cascadeselect-items
+    .p-cascadeselect-item
+    .p-cascadeselect-item-content {
+    padding: 0.75rem 1.25rem;
+}
+.p-cascadeselect-panel
+    .p-cascadeselect-items
+    .p-cascadeselect-item
+    .p-cascadeselect-item-content:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: inset 0 0 0 0.15rem #c7d2fe;
+}
+.p-cascadeselect-panel
+    .p-cascadeselect-items
+    .p-cascadeselect-item.p-highlight {
+    color: #4338ca;
+    background: #eef2ff;
+}
+.p-cascadeselect-panel
+    .p-cascadeselect-items
+    .p-cascadeselect-item:not(.p-highlight):not(.p-disabled):hover {
+    color: #495057;
+    background: #e9ecef;
+}
+.p-cascadeselect-panel
+    .p-cascadeselect-items
+    .p-cascadeselect-item
+    .p-cascadeselect-group-icon {
+    font-size: 0.875rem;
+}
+
+.p-input-filled .p-cascadeselect {
+    background: #e9ecef;
+}
+.p-input-filled .p-cascadeselect:not(.p-disabled):hover {
+    background-color: #e9ecef;
+}
+.p-input-filled .p-cascadeselect:not(.p-disabled).p-focus {
+    background-color: #ffffff;
+}

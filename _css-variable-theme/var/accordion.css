@@ -1,0 +1,21 @@
+:root {
+    --accordion-spacing: 0;
+    --accordion-header-border: var(--panel-header-border);
+    --accordion-header-bg: var(--panel-header-bg);
+    --accordion-header-text-color: var(--panel-header-text-color);
+    --accordion-header-font-weight: var(--panel-header-font-weight);
+    --accordion-header-padding: var(--panel-header-padding);
+    --accordion-header-hover-bg: #e9ecef;
+    --accordion-header-hover-border-color: var(--panel-header-border);
+    --accordion-header-text-hover-color: var(--text-color);
+    --accordion-header-active-bg: var(--panel-header-bg);
+    --accordion-header-active-border-color: #dee2e6;
+    --accordion-header-text-active-color: var(--text-color);
+    --accordion-header-active-hover-bg: #e9ecef;
+    --accordion-header-active-hover-border-color: #dee2e6;
+    --accordion-header-text-active-hover-color: var(--text-color);
+    --accordion-content-border: var(--panel-content-border);
+    --accordion-content-bg: var(--panel-content-bg);
+    --accordion-content-text-color: var(--panel-content-text-color);
+    --accordion-content-padding: var(--panel-content-padding);
+}
